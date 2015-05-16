@@ -75,6 +75,20 @@ module.exports = function (app) {
 
 
     });
+    app.delete(APP.APIPATH + '/member/:followerId/follow/:followeeId', function (req, res) {
+
+        FollowCtrl.deleteFollower(req.params.followerId,req.params.followeeId,function(err,doc){
+            if (err){
+                res.send({success:false,error:err})
+            }
+
+            else{
+                res.send({success:true})
+            }
+        })
+
+
+    });
 
     app.get(APP.APIPATH + '/member/:memberID/followee', function (req, res) {
 

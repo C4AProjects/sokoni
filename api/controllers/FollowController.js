@@ -5,7 +5,7 @@
 var  _ = require('underscore');
 
 /* Add member*/
-module.exports.follow=function addMember (followerId,followeeId,callback){
+module.exports.follow=function follow (followerId,followeeId,callback){
     //verify that this following deos not exist
     APP.DB.FOLLOWER.findOne({follower:followerId,followee:followeeId},function(err,doc){
         if(err){
@@ -69,7 +69,7 @@ module.exports.follow=function addMember (followerId,followeeId,callback){
 
 }
 
-module.exports.getfollower=function addMember (memberId,skip,limit,callback) {
+module.exports.getfollower=function getfollower (memberId,skip,limit,callback) {
 
     var _skip=0;
     var _limit=50
@@ -84,11 +84,11 @@ module.exports.getfollower=function addMember (memberId,skip,limit,callback) {
             callback(null,doc)
             return;
         }
-    }).populate('follower','-password').skip(_skip).limit(_limit);
+    }).skip(_skip).limit(_limit).populate('follower','-password');
 
 }
 
-module.exports.getfollowee=function addMember (memberId,skip,limit,callback) {
+module.exports.getfollowee=function getfollowee (memberId,skip,limit,callback) {
 
     var _skip=0;
     var _limit=50
@@ -104,5 +104,23 @@ module.exports.getfollowee=function addMember (memberId,skip,limit,callback) {
             return;
         }
     }).populate('followee','-password').skip(_skip).limit(_limit);
+
+}
+
+module.exports.deleteFollower=function deleteFollower (followerId,followeeId,callback) {
+
+    APP.DB.FOLLOWER.findOne({follower:followerId,followee:followeeId},function(err,doc) {
+        if (err) {
+            ERROR(err)
+            callback(err)
+        } else if (!doc) {
+            callback("this followeing link doesnot exist, please verify sent members ID")
+            return;
+        }else{
+            doc.remove();
+            callback(null,doc)
+
+        }
+    })
 
 }
