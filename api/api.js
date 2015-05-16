@@ -31,9 +31,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/', function(req, res){
+app.get(APP.APIPATH, function(req, res){
 
-    res.send({message:"welcome to KNCCI Api",version:APP.CONFIG.version})
+    res.send({message:"welcome to SOKONI Apix",version:APP.CONFIG.version})
 });
 
 

@@ -10,8 +10,8 @@ follow_schema = new Schema({
     follower : {type: Schema.Types.ObjectId, ref: 'member'},
     followee : {type: Schema.Types.ObjectId, ref: 'member'},
     start : {type: Date, default: Date.now},
-    end : {type: Date, default: Date.now}
+    end : {type: Date}
 })
 module.exports = function (backend) {
-    backend.FOLLOW = mongoose.model('follow', follow_schema, 'follow', true);
+    backend.FOLLOWER = mongoose.model('follow', follow_schema, 'follow', true);
 }
