@@ -1,0 +1,25 @@
+{
+  "name": "SOKONI",
+  "version": "1.0.0",
+  "description": "Kenya National Chamber of commerce & Industry",
+  "main": "server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haythem Horbit @ C4A",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "compression": "*",
+    "debug": "~2.0.0",
+    "errorhandler": "*",
+    "express": "^4.12.3",
+    "express-session": "*",
+    "method-override": "*",
+    "mongoose": "*",
+    "multer": "*",
+    "serve-favicon": "*",
+    "underscore": "*",
+    "winston": "*"
+  }
+}
