@@ -10,7 +10,7 @@ DEBUG("Loading DB")
 APP.DB={}
 require("./models/MemberModel")(APP.DB);
 require("./models/FollowModel")(APP.DB);
-
+require("./models/MessageModel")(APP.DB);
 require('./utils/connectionUtils')(APP.DB);
 
 

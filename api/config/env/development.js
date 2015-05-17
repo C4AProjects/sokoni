@@ -5,7 +5,7 @@ module.exports={
         PATH:"/api"
     },
     DB:{
-        url:'mongodb://localhost/taxi'
+        url:'mongodb://localhost/sonoki'
         /*  auth:
          {
          user: 'portal',

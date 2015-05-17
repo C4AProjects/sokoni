@@ -57,14 +57,14 @@ module.exports.getMemberById=function getMemberById(memberId,callback){
 
 /*Get all member*/
 module.exports.getAllMembers=function getAllMembers(callback,skip,limit){
-var _skip=0;
+    var _skip=0;
     var _limit=50
     if (skip) _skip=skip
     if (limit) _limit=limit
 
     APP.DB.MEMBER.find({},function(err,result){
         if (err){
-            DEBUG('ERROR getAllRides : ' + err);
+            DEBUG('ERROR getAllMembers : ' + err);
             callback("ERROR interne");
         } else
             callback(null,result);
@@ -74,14 +74,14 @@ var _skip=0;
 module.exports.updateMember=function updateMember (memberId,memberData,callback){
     APP.DB.MEMBER.findByIdAndUpdate(memberId,memberData, function (err, result){
     if (err){
-        DEBUG('ERROR updateRide : ' + err);
+        DEBUG('ERROR updateMember : ' + err);
         callback("ERROR interne: ")
     }else{
         if(_.size(result) > 0){
             callback(null,result);
         } else{
-            var errorMessage = 'Erreur updateRide  :member n\'existe pas';
-            DEBUG('ERROR updateRide : ' + errorMessage);
+            var errorMessage = 'Erreur updateMember  :member n\'existe pas';
+            DEBUG('ERROR updateMember : ' + errorMessage);
             callback("ERROR interne");
 
         }

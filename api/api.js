@@ -37,9 +37,11 @@ app.get(APP.APIPATH, function(req, res){
 });
 
 
-//loading Driver Route
+//loading Member Route
 require('./routes/MemberRoute')(app)
-
+//loading Followe Route
+require('./routes/FollowRoute')(app)
+require('./routes/MessageRoute')(app)
 app.listen(APP.CONFIG.API.PORT, function(){
     INFO('listening on *:'+APP.CONFIG.API.PORT);
 });
