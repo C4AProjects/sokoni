@@ -39,9 +39,9 @@ app.get(APP.APIPATH, function(req, res){
 
 //loading Member Route
 require('./routes/MemberRoute')(app)
-//loading Followe Route
 require('./routes/FollowRoute')(app)
 require('./routes/MessageRoute')(app)
+require('./routes/PostRoute')(app)
 app.listen(APP.CONFIG.API.PORT, function(){
     INFO('listening on *:'+APP.CONFIG.API.PORT);
 });

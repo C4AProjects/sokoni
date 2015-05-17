@@ -8,6 +8,7 @@ member_schema = new Schema({
     email : {type: String,require: true},
     password : {type: String,require: true},
     profilePhoto:{type: String,require: true},
+    role:{type: String, required: true, uppercase: true, enum: ['MEMBER', 'STAFF', 'ADMIN'], default: 'MEMBER'},
     created_date: {type: Date, default: Date.now},
     modified_date: {type: Date, default: Date.now}
 
