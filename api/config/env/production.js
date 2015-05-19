@@ -1,7 +1,8 @@
+'use strict';
 module.exports={
     version:"V1",
     API:{
-        PORT:5000,
+        PORT: process.env.NODE_ENV || 5000,
         PATH:"/api"
     },
     DB:{
